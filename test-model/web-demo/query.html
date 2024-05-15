@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询测试</title>
+</head>
+<body>
+
+
+<input id="btn_fingerprint" type="button" value="获取指纹生成DEMO帐号"/>
+<br>
+邮箱：<input id="mail" type="text" value="41277749@qq.com"/>
+密码：<input id="password" type="text" value="zgyl5202"/>
+<input id="btn_register" type="button" value="注册"/>
+<input id="btn_login" type="button" value="登陆"/>
+<br>
+<input id="btn_getConfig" type="button" value="获取配置"/>
+<input id="btn_getUserDetail" type="button" value="获取用户详情"/>
+<input id="btn_editUser" type="button" value="编辑用户资料"/>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jsencrypt.js"></script>
+<script src="js/md5.min.js"></script>
+<script type="text/javascript">
+    const options = {}
+    options.default_key_size = 1024;
+    options.default_public_exponent = 65537;
+    options.log = true;
+    const encrypt = new JSEncrypt(options);
+    encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZFW5LyHaR0kkr8GtvyMCptXbfOPX86hRZyVEqxXqpp+wsGNIUWLw6FJDFtWlgQpvc7xngilEOPzOfbpgjEEVaAM5dDfmwbSd1pfc2AfjXQErYSeWLEiiMN22RgLqZMTeb6894PdH+VahT9CwNafM9hSgdhiiJxIN67roQ12ujiQIDAQAB");
+    // encrypt.setPublicKey("MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAILxLkw91qVRcID_sDpbVSkK1B7mnBpE_eOkU6bK3t-BH7iWgByvsmmwgrIDU2B1m1v7pNJYu4mljHzpDj0XYNECAwEAAQ");
+    const token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwNzAxNDAzZC00NGMyLTRlOTItYWJlMC0wMmVkNGE4NjFlMDkiLCJpYXQiOjE2ODIzODkyODgsInN1YiI6IntcImlkXCI6NTEsXCJsb2dpblRpbWVcIjoxNjgyMzg5Mjg4NDUzLFwib3BlbklkXCI6XCIzMzItNzMwLTk1MlwiLFwicGVybWlzc2lvbnNcIjpcIm1lbWJlclwiLFwidWlkXCI6Njk2MTY3OTU2MjMxNjU3OH0iLCJleHAiOjE2ODQ5ODEyODh9.yoPD0VzstBff-SZkPekPd5lAf9DoPHcUrkVWk5nS0LA";
+
+    /**
+     * 指纹
+     */
+    $("#btn_fingerprint").click(function () {
+        const form = {};
+        const timestamp = Date.parse(new Date());
+        const requestId = getUuid();
+        const data = JSON.stringify(sort_ASCII(form));
+        const sign = MD5(data + requestId + timestamp);
+        const url = "http://localhost:9000/auth/user/fingerprint";
+        $.ajax({
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("timestamp", timestamp);
+                XMLHttpRequest.setRequestHeader("requestId", requestId);
+                XMLHttpRequest.setRequestHeader("Murmur", 41277749);
+                XMLHttpRequest.setRequestHeader("sign", sign);
+            },
+            type: "GET",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    /**
+     * 获取用户详情
+     */
+    $("#btn_getUserDetail").click(function () {
+        const form = {};
+        form.test = "中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠"
+        const timestamp = Date.parse(new Date());
+        const requestId = getUuid();
+        const data = JSON.stringify(sort_ASCII(form));
+        const sign = MD5(data + requestId + timestamp);
+        const param = "test=" + "中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠中我欠";
+        const encodeData = encodeURI(param);
+        console.log(encodeData);
+        const str = encrypt.encryptLong(encodeData);
+        console.log(str);
+        const url = "http://localhost:9000/auth/user/getUserDetail?param=" + str;
+        $.ajax({
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("timestamp", timestamp);
+                XMLHttpRequest.setRequestHeader("requestId", requestId);
+                XMLHttpRequest.setRequestHeader("Murmur", 41277749);
+                XMLHttpRequest.setRequestHeader("sign", sign);
+                XMLHttpRequest.setRequestHeader("token", token);
+            },
+            type: "GET",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    /**
+     * 获取系统配置
+     */
+    $("#btn_getConfig").click(function () {
+        const configKey = "ACCESS_KEY_ID";
+        const param = "configKey=" + "ACCESS_KEY_ID";
+        const form = {};
+        form.configKey = configKey;
+
+        const timestamp = Date.parse(new Date());
+        const requestId = getUuid();
+        const data = JSON.stringify(sort_ASCII(form));
+        const sign = MD5(data + requestId + timestamp);
+        const url = "http://localhost:9000/auth/user/getSysConfig?param=" + encrypt.encryptLong(param);
+
+        $.ajax({
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", token);
+                XMLHttpRequest.setRequestHeader("timestamp", timestamp);
+                XMLHttpRequest.setRequestHeader("requestId", requestId);
+                XMLHttpRequest.setRequestHeader("Murmur", 41277749);
+                XMLHttpRequest.setRequestHeader("sign", sign);
+            },
+            type: "GET",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#btn_register").click(function () {
+        const mail = $("#mail").val();
+        const password = $("#password").val();
+
+        const form = {};
+        form.mail = mail;
+        form.password = password;
+        const timestamp = Date.parse(new Date());
+        const requestId = getUuid();
+        const data = JSON.stringify(sort_ASCII(form));
+        const sign = MD5(data + requestId + timestamp);
+
+        const url = "http://localhost:9000/auth/user/register";
+        $.ajax({
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", token);
+                XMLHttpRequest.setRequestHeader("timestamp", timestamp);
+                XMLHttpRequest.setRequestHeader("requestId", requestId);
+                XMLHttpRequest.setRequestHeader("Murmur", 41277749);
+                XMLHttpRequest.setRequestHeader("sign", sign);
+            },
+            data: encrypt.encryptLong(data),
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#btn_login").click(function () {
+        const mail = $("#mail").val();
+        const password = $("#password").val();
+        /* const name = "朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东朱永东";
+         const phone = "19974866455";*/
+
+        const form = {};
+        form.mail = mail;
+        form.password = password;
+        /*form.name = name;
+        form.phone = phone;*/
+        const timestamp = Date.parse(new Date());
+        const requestId = getUuid();
+        const data = JSON.stringify(sort_ASCII(form));
+        console.log(data + requestId + timestamp)
+        const sign = MD5(data + requestId + timestamp);
+        console.log(sign);
+        const url = "http://localhost:9000/auth/user/login";
+        const str = encrypt.encryptLong(data);
+
+        console.log(str);
+        $.ajax({
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", token);
+                XMLHttpRequest.setRequestHeader("timestamp", timestamp);
+                XMLHttpRequest.setRequestHeader("requestId", requestId);
+                XMLHttpRequest.setRequestHeader("Murmur", 41277749);
+                XMLHttpRequest.setRequestHeader("sign", sign);
+            },
+            data: str,
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#btn_editUser").click(function () {
+        const postalCode = "123";
+        const userAddress = "中国留个脚中国中国留个脚中国中国中国中国中国";
+        const address = "11122";
+        const phone = "1532656";
+        const birth = "1990/09/27";
+
+        const form = {};
+        form.postalCode = postalCode;
+        form.userAddress = userAddress;
+        form.address = address;
+        form.phone = phone;
+        form.birth = birth;
+        const timestamp = Date.parse(new Date());
+        const requestId = getUuid();
+        const data = JSON.stringify(sort_ASCII(form));
+        const sign = MD5(data + requestId + timestamp);
+        const url = "http://localhost:9000/auth/user/editUser";
+        const encodeData = encodeURI(data);
+        console.log(encodeData);
+        const str = encrypt.encryptLong(encodeData);
+        console.log(str);
+        $.ajax({
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("token", token);
+                XMLHttpRequest.setRequestHeader("timestamp", timestamp);
+                XMLHttpRequest.setRequestHeader("requestId", requestId);
+                XMLHttpRequest.setRequestHeader("Murmur", 41277749);
+                XMLHttpRequest.setRequestHeader("sign", sign);
+            },
+            data: str,
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    function getUuid() {
+        var s = [];
+        var hexDigits = "0123456789abcdef";
+        for (var i = 0; i < 32; i++) {
+            s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+        }
+        s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+        s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+        s[8] = s[13] = s[18] = s[23];
+        var uuid = s.join("");
+        return uuid;
+    }
+
+    function sort_ASCII(obj) {
+        var arr = new Array();
+        var num = 0;
+        for (var i in obj) {
+            arr[num] = i;
+            num++;
+        }
+        var sortArr = arr.sort();
+        var sortObj = {};
+        for (var i in sortArr) {
+            sortObj[sortArr[i]] = obj[sortArr[i]];
+        }
+        return sortObj;
+    }
+
+</script>
+
+
+</body>
+</html>

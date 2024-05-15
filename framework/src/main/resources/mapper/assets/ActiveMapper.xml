@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.assets.mapper.ActiveMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.assets.mo.ActiveMo" id="bizActiveMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="num" column="num"/>
+        <result property="rewardModel" column="reward_model"/>
+        <result property="rewardAmount" column="reward_amount"/>
+        <result property="amountRangeBegin" column="amount_range_begin"/>
+        <result property="amountRangeEnd" column="amount_range_end"/>
+        <result property="useNum" column="use_num"/>
+        <result property="dayUseNum" column="day_use_num"/>
+        <result property="beginTime" column="begin_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="state" column="state"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteFlag" column="delete_flag"/>
+    </resultMap>
+
+
+    <!--促销活动列表查询 -->
+    <select id="getActiveListByParamer" resultMap="bizActiveMap">
+        SELECT
+            *
+        FROM
+            biz_active
+        WHERE
+            1 = 1
+        AND id = #{id}
+        AND begin_time <![CDATA[ <= ]]> #{time}
+        ORDER BY create_time DESC
+    </select>
+
+    <!--促销活动列表查询 -->
+    <select id="getActiveList"   parameterType="com.ulla.modules.assets.vo.ActiveParameterVO" resultMap="bizActiveMap">
+        SELECT
+            *
+        FROM
+            biz_active
+        WHERE
+            1 = 1
+        ORDER BY create_time DESC
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 促销活动列表查询-->
+    <select id="getActiveListCount"   parameterType="com.ulla.modules.assets.vo.ActiveParameterVO"   resultType="java.lang.Integer" >
+        SELECT
+           COUNT(*)
+        FROM
+            biz_active
+        ORDER BY create_time DESC
+    </select>
+
+
+
+
+</mapper>

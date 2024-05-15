@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: ios-api
+  profiles:
+    active: dev
+
+---
+# 开发环境
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.174:8848
+        namespace: 34cc4134-1465-4c7b-8359-0649a20156e5
+      config:
+        server-addr: 192.168.0.174:8848
+        namespace: 34cc4134-1465-4c7b-8359-0649a20156e5
+        file-extension: yml
+        shared-configs[0]:
+          dataId: ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          group: DEFAULT_GROUP
+          refresh: true # 是否动态刷新,默认为false
+    # 负载均衡
+    loadbalancer:
+      enabled: true # 默认开启loadbalancer
+      nacos:
+        enabled: true # 手动开启nacos负载均衡
+
+---
+# 测试环境
+spring:
+  config:
+    activate:
+      on-profile: test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c3fdf801-38c6-4dfb-a412-c11b9d64025d
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c3fdf801-38c6-4dfb-a412-c11b9d64025d
+        file-extension: yaml
+        shared-configs[0]:
+          dataId: gateway-common.yaml
+          group: DEFAULT_GROUP
+          refresh: true

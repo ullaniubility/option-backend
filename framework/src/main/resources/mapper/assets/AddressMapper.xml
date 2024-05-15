@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.assets.mapper.AddressMapper">
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.assets.mo.AddressMo" id="bizAddressMap">
+        <result property="id" column="id"/>
+        <result property="net" column="net"/>
+        <result property="address" column="address"/>
+        <result property="userId" column="user_id"/>
+        <result property="state" column="state"/>
+        <result property="scanFlag" column="scan_flag"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteFlag" column="delete_flag"/>
+    </resultMap>
+
+
+    <!--根据用户Id和地址校验该用户下是否存在该地址 -->
+    <select id="getAddressByUserId" resultMap="bizAddressMap">
+        SELECT
+        *
+        FROM
+        biz_address
+        WHERE
+        1=1
+        <if test="address != null and address != ''">
+            AND address = #{address}
+        </if>
+        <if test="userId != null and userId != ''">
+            AND user_id = #{userId}
+        </if>
+    </select>
+
+    <!--地址池列表查询 -->
+    <select id="getAddressList" parameterType="com.ulla.modules.assets.vo.AddressParameterVO" resultMap="bizAddressMap">
+        SELECT
+        *
+        FROM
+        biz_address
+        WHERE
+        1=1
+        <if test="state != null">
+            AND state = #{state}
+        </if>
+        <if test="userId != null and userId != ''">
+            AND user_id like concat(concat('%', #{userId}), '%')
+        </if>
+        <if test="address != null and address != ''">
+            AND address like concat(concat('%', #{address}), '%')
+        </if>
+        <if test="net != null and net != ''">
+            AND net like concat(concat('%', #{net}), '%')
+        </if>
+        ORDER BY create_time DESC
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 地址池列表查询-->
+    <select id="getAddressListCount" parameterType="com.ulla.modules.assets.vo.AddressParameterVO"
+            resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM
+        biz_address
+        WHERE
+        1=1
+        <if test="state != null">
+            AND state = #{state}
+        </if>
+        <if test="userId != null and userId != ''">
+            AND user_id like concat(concat('%', #{userId}), '%')
+        </if>
+        <if test="address != null and address != ''">
+            AND address like concat(concat('%', #{address}), '%')
+        </if>
+        <if test="net != null and net != ''">
+            AND net like concat(concat('%', #{net}), '%')
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+
+</mapper>

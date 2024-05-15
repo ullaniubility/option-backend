@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: test
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.174:8848
+        namespace: 34cc4134-1465-4c7b-8359-0649a20156e5
+      config:
+        server-addr: 192.168.0.174:8848
+        namespace: 34cc4134-1465-4c7b-8359-0649a20156e5
+        file-extension: yml
+        shared-configs[0]:
+          dataId: ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          group: DEFAULT_GROUP
+          refresh: true
+    loadbalancer:
+      enabled: true
+      nacos:
+        enabled: true
+
+---
+# 测试环境
+spring:
+  config:
+    activate:
+      on-profile: test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.242.240.167:8848
+        namespace: 0497d207-eaa4-4aca-9a0f-daf93e795d66
+      config:
+        server-addr: 47.242.240.167:8848
+        namespace: 0497d207-eaa4-4aca-9a0f-daf93e795d66
+        file-extension: yml
+        shared-configs[0]:
+          dataId: ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          group: DEFAULT_GROUP
+          refresh: true # 是否动态刷新,默认为false
+    # 负载均衡
+    loadbalancer:
+      enabled: true # 默认开启loadbalancer
+      nacos:
+        enabled: true # 手动开启nacos负载均衡
+
+
+---
+# 测试环境
+spring:
+  config:
+    activate:
+      on-profile: bin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.242.240.167:8848
+        namespace: e6933704-6332-436f-aaa3-060ac5f3e6c3
+      config:
+        server-addr: 47.242.240.167:8848
+        namespace: e6933704-6332-436f-aaa3-060ac5f3e6c3
+        file-extension: yml
+        shared-configs[0]:
+          dataId: ${spring.application.name}-test.${spring.cloud.nacos.config.file-extension}
+          group: DEFAULT_GROUP
+          refresh: true # 是否动态刷新,默认为false
+    # 负载均衡
+    loadbalancer:
+      enabled: true # 默认开启loadbalancer
+      nacos:
+        enabled: true # 手动开启nacos负载均衡

@@ -1,0 +1,1175 @@
+2023-04-22 13:37:56.314[1682141876314] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:37:56.544[1682141876544] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:37:56.907[1682141876907] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:37:56.928[1682141876928] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:37:57.944[1682141877944] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:37:58.950[1682141878950] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:37:59.963[1682141879963] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:37:59.963[1682141879963] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:37:59.965[1682141879965] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:37:59.966[1682141879966] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:37:59.966[1682141879966] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, config=
+2023-04-22 13:37:59.967[1682141879967] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:38:00.975[1682141880975] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:01.986[1682141881986] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:02.996[1682141882996] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:02.996[1682141882996] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:38:02.997[1682141882997] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [sub-server] get server config exception, dataId=binance-api, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:141)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:38:02.997[1682141882997] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get from server error, dataId=binance-api, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:38:02.997[1682141882997] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get snapshot ok, dataId=binance-api, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, config=
+2023-04-22 13:38:02.997[1682141882997] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:38:04.006[1682141884006] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:05.015[1682141885015] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:06.027[1682141886027] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:06.027[1682141886027] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:38:06.029[1682141886029] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [sub-server] get server config exception, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:144)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:38:06.029[1682141886029] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get from server error, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:38:06.029[1682141886029] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get snapshot ok, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, config=
+2023-04-22 13:38:06.029[1682141886029] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:38:07.040[1682141887040] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:08.043[1682141888043] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:09.053[1682141889053] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:38:09.053[1682141889053] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:38:09.053[1682141889053] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:149)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:38:09.053[1682141889053] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:38:09.053[1682141889053] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-34cc4134-1465-4c7b-8359-0649a20156e5] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=34cc4134-1465-4c7b-8359-0649a20156e5, config=
+2023-04-22 13:38:09.053[1682141889053] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:38:09.054[1682141889054] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:38:09.058[1682141889058] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:38:09.830[1682141889830] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:38:09.831[1682141889831] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:38:09.872[1682141889872] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:38:09.875[1682141889875] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:38:09.875[1682141889875] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:38:09.899[1682141889899] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:38:09.906[1682141889906] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:38:09.907[1682141889907] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:38:09.936[1682141889936] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:38:10.078[1682141890078] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ef1e782f-a511-366b-9b75-c2990ed159dd
+2023-04-22 13:38:10.354[1682141890354] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 13:38:10.361[1682141890361] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-22 13:38:10.361[1682141890361] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:38:10.361[1682141890361] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:38:10.449[1682141890449] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:38:10.449[1682141890449] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1379 ms
+2023-04-22 13:38:10.636[1682141890636] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+2023-04-22 13:38:10.651[1682141890651] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:38:10.660[1682141890660] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:38:10.674[1682141890674] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 18 common frames omitted
+2023-04-22 13:38:11.510[1682141891510] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:38:11.511[1682141891511] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end
+2023-04-22 13:38:59.764[1682141939764] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:38:59.994[1682141939994] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:39:00.336[1682141940336] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:39:00.361[1682141940361] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:39:01.390[1682141941390] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:02.397[1682141942397] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:03.410[1682141943410] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:03.410[1682141943410] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:39:03.412[1682141943412] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:39:03.413[1682141943413] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:39:03.413[1682141943413] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:39:03.414[1682141943414] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:39:04.419[1682141944419] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:05.423[1682141945423] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:06.434[1682141946434] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:06.434[1682141946434] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:39:06.434[1682141946434] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:141)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:39:06.435[1682141946435] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:39:06.435[1682141946435] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:39:06.435[1682141946435] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:39:07.445[1682141947445] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:08.460[1682141948460] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:09.471[1682141949471] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:09.471[1682141949471] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:39:09.471[1682141949471] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:144)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:39:09.471[1682141949471] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:39:09.471[1682141949471] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:39:09.471[1682141949471] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:39:10.482[1682141950482] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:11.491[1682141951491] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:12.505[1682141952505] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:39:12.505[1682141952505] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:39:12.505[1682141952505] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:149)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:39:12.505[1682141952505] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:39:12.505[1682141952505] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:39:12.506[1682141952506] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:39:12.507[1682141952507] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:39:12.510[1682141952510] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:39:12.930[1682141952930] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:39:12.932[1682141952932] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:39:12.970[1682141952970] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:39:12.972[1682141952972] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:39:12.973[1682141952973] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:39:12.995[1682141952995] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:39:13.002[1682141953002] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:39:13.002[1682141953002] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:39:13.032[1682141953032] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:39:13.169[1682141953169] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ef1e782f-a511-366b-9b75-c2990ed159dd
+2023-04-22 13:39:13.425[1682141953425] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 13:39:13.432[1682141953432] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-22 13:39:13.432[1682141953432] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:39:13.432[1682141953432] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:39:13.521[1682141953521] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:39:13.521[1682141953521] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1001 ms
+2023-04-22 13:39:13.721[1682141953721] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+2023-04-22 13:39:13.735[1682141953735] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:39:13.744[1682141953744] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:39:13.758[1682141953758] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 18 common frames omitted
+2023-04-22 13:39:14.594[1682141954594] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:39:14.595[1682141954595] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end
+2023-04-22 13:42:01.113[1682142121113] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:42:01.372[1682142121372] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:42:01.765[1682142121765] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:42:01.786[1682142121786] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:42:02.801[1682142122801] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:03.809[1682142123809] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:04.818[1682142124818] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:04.818[1682142124818] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:42:04.819[1682142124819] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:42:04.821[1682142124821] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:42:04.821[1682142124821] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:42:04.821[1682142124821] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:42:05.826[1682142125826] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:06.835[1682142126835] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:07.847[1682142127847] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:07.847[1682142127847] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:42:07.847[1682142127847] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:141)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:42:07.848[1682142127848] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:42:07.848[1682142127848] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:42:07.848[1682142127848] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:42:08.859[1682142128859] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:09.870[1682142129870] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:10.883[1682142130883] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:10.883[1682142130883] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:42:10.883[1682142130883] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:144)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:42:10.884[1682142130884] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:42:10.884[1682142130884] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:42:10.884[1682142130884] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:42:11.898[1682142131898] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:12.910[1682142132910] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:13.924[1682142133924] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:42:13.924[1682142133924] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:42:13.924[1682142133924] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:149)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:42:13.925[1682142133925] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:42:13.925[1682142133925] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:42:13.925[1682142133925] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:42:13.925[1682142133925] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:42:13.930[1682142133930] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:42:14.420[1682142134420] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:42:14.421[1682142134421] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:42:14.466[1682142134466] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:42:14.468[1682142134468] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:42:14.469[1682142134469] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:42:14.493[1682142134493] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:42:14.502[1682142134502] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:42:14.503[1682142134503] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:42:14.535[1682142134535] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:42:14.686[1682142134686] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ef1e782f-a511-366b-9b75-c2990ed159dd
+2023-04-22 13:42:14.974[1682142134974] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 13:42:14.988[1682142134988] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-22 13:42:14.989[1682142134989] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:42:14.989[1682142134989] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:42:15.088[1682142135088] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:42:15.088[1682142135088] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1145 ms
+2023-04-22 13:42:15.287[1682142135287] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+2023-04-22 13:42:15.303[1682142135303] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:42:15.313[1682142135313] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:42:15.329[1682142135329] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 18 common frames omitted
+2023-04-22 13:42:16.152[1682142136152] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:42:16.153[1682142136153] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end
+2023-04-22 13:44:37.987[1682142277987] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:44:38.212[1682142278212] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:44:38.542[1682142278542] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:44:38.562[1682142278562] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:44:39.587[1682142279587] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:40.596[1682142280596] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:41.611[1682142281611] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:41.611[1682142281611] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:44:41.614[1682142281614] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:44:41.614[1682142281614] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:44:41.615[1682142281615] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:44:41.615[1682142281615] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:44:42.622[1682142282622] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:43.636[1682142283636] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:44.647[1682142284647] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:44.647[1682142284647] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:44:44.647[1682142284647] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:141)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:44:44.647[1682142284647] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:44:44.648[1682142284648] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:44:44.648[1682142284648] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:44:45.663[1682142285663] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:46.672[1682142286672] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:47.683[1682142287683] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:47.683[1682142287683] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:44:47.683[1682142287683] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:144)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:44:47.683[1682142287683] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:44:47.683[1682142287683] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:44:47.683[1682142287683] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:44:48.688[1682142288688] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:49.699[1682142289699] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:50.710[1682142290710] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:44:50.710[1682142290710] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:44:50.710[1682142290710] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:149)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:44:50.711[1682142290711] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:44:50.711[1682142290711] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:44:50.711[1682142290711] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:44:50.712[1682142290712] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:44:50.715[1682142290715] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:44:51.129[1682142291129] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:44:51.131[1682142291131] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:44:51.167[1682142291167] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:44:51.170[1682142291170] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:44:51.170[1682142291170] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:44:51.193[1682142291193] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:44:51.201[1682142291201] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:44:51.201[1682142291201] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:44:51.231[1682142291231] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:44:51.360[1682142291360] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ef1e782f-a511-366b-9b75-c2990ed159dd
+2023-04-22 13:44:51.621[1682142291621] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 13:44:51.628[1682142291628] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-22 13:44:51.629[1682142291629] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:44:51.629[1682142291629] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:44:51.715[1682142291715] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:44:51.715[1682142291715] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 988 ms
+2023-04-22 13:44:51.900[1682142291900] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+2023-04-22 13:44:51.913[1682142291913] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:44:51.922[1682142291922] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:44:51.936[1682142291936] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 18 common frames omitted
+2023-04-22 13:44:52.777[1682142292777] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:44:52.778[1682142292778] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end
+2023-04-22 13:50:07.585[1682142607585] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:50:07.812[1682142607812] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:50:08.138[1682142608138] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:50:08.158[1682142608158] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:50:09.181[1682142609181] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:10.189[1682142610189] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:11.197[1682142611197] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:11.197[1682142611197] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:50:11.200[1682142611200] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:50:11.200[1682142611200] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:50:11.200[1682142611200] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:50:11.202[1682142611202] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:50:12.209[1682142612209] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:13.221[1682142613221] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:14.231[1682142614231] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:14.232[1682142614232] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:50:14.232[1682142614232] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:141)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:50:14.232[1682142614232] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:50:14.232[1682142614232] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:50:14.232[1682142614232] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:50:15.243[1682142615243] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:16.257[1682142616257] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:17.269[1682142617269] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:17.269[1682142617269] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:50:17.269[1682142617269] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:144)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:50:17.270[1682142617270] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:50:17.270[1682142617270] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:50:17.270[1682142617270] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:50:18.282[1682142618282] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:19.292[1682142619292] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:20.305[1682142620305] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:50:20.305[1682142620305] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:50:20.305[1682142620305] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:149)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:50:20.305[1682142620305] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:50:20.305[1682142620305] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:50:20.305[1682142620305] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:50:20.306[1682142620306] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:50:20.310[1682142620310] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:50:20.731[1682142620731] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:50:20.733[1682142620733] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:50:20.772[1682142620772] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:50:20.775[1682142620775] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:50:20.775[1682142620775] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:50:20.798[1682142620798] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:50:20.806[1682142620806] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:50:20.807[1682142620807] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:50:20.836[1682142620836] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:50:20.968[1682142620968] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ef1e782f-a511-366b-9b75-c2990ed159dd
+2023-04-22 13:50:21.229[1682142621229] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 13:50:21.236[1682142621236] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-22 13:50:21.236[1682142621236] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:50:21.236[1682142621236] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:50:21.319[1682142621319] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:50:21.319[1682142621319] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 998 ms
+2023-04-22 13:50:21.498[1682142621498] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+2023-04-22 13:50:21.513[1682142621513] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:50:21.523[1682142621523] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:50:21.536[1682142621536] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 18 common frames omitted
+2023-04-22 13:50:22.379[1682142622379] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:50:22.380[1682142622380] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end
+2023-04-22 13:52:30.567[1682142750567] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:52:30.811[1682142750811] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:52:31.171[1682142751171] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:52:31.199[1682142751199] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:52:32.236[1682142752236] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:33.251[1682142753251] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:34.263[1682142754263] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:34.263[1682142754263] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:52:34.265[1682142754265] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosConfiguration(NacosPropertySourceLocator.java:158)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadSharedConfiguration(NacosPropertySourceLocator.java:116)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:101)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:52:34.266[1682142754266] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:52:34.266[1682142754266] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:52:34.267[1682142754267] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:52:35.277[1682142755277] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:36.292[1682142756292] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:37.304[1682142757304] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:37.304[1682142757304] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:52:37.304[1682142757304] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:141)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:52:37.305[1682142757305] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:52:37.305[1682142757305] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:52:37.305[1682142757305] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:52:38.314[1682142758314] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:39.323[1682142759323] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:40.336[1682142760336] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:40.336[1682142760336] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:52:40.336[1682142760336] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:144)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:52:40.336[1682142760336] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:52:40.336[1682142760336] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:52:40.336[1682142760336] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:52:41.350[1682142761350] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:42.361[1682142762361] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:43.371[1682142763371] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - [NACOS SocketTimeoutException httpGet] currentServerAddr:http://172.29.53.140:8848， err : connect timed out
+2023-04-22 13:52:43.371[1682142763371] | ERROR | main       | c.a.n.c.config.http.ServerHttpAgent  - no available server
+2023-04-22 13:52:43.372[1682142763372] | ERROR | main       | c.a.n.c.config.impl.ClientWorker     - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [sub-server] get server config exception, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66
+java.net.ConnectException: no available server
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpGet(ServerHttpAgent.java:134)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpGet(MetricsHttpAgent.java:51)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.getServerConfig(ClientWorker.java:274)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfigInner(NacosConfigService.java:155)
+	at com.alibaba.nacos.client.config.NacosConfigService.getConfig(NacosConfigService.java:98)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.loadNacosData(NacosPropertySourceBuilder.java:85)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceBuilder.build(NacosPropertySourceBuilder.java:73)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosPropertySource(NacosPropertySourceLocator.java:199)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadNacosDataIfPresent(NacosPropertySourceLocator.java:186)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.loadApplicationConfiguration(NacosPropertySourceLocator.java:149)
+	at com.alibaba.cloud.nacos.client.NacosPropertySourceLocator.locate(NacosPropertySourceLocator.java:103)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:51)
+	at org.springframework.cloud.bootstrap.config.PropertySourceLocator.locateCollection(PropertySourceLocator.java:47)
+	at org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration.initialize(PropertySourceBootstrapConfiguration.java:95)
+	at org.springframework.boot.SpringApplication.applyInitializers(SpringApplication.java:635)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:390)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+2023-04-22 13:52:43.372[1682142763372] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get from server error, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, msg=ErrCode:500, ErrMsg:no available server
+2023-04-22 13:52:43.372[1682142763372] | WARN  | main       | c.a.n.c.config.NacosConfigService    - [fixed-172.29.53.140_8848-0497d207-eaa4-4aca-9a0f-daf93e795d66] [get-config] get snapshot ok, dataId=binance-api-test.yml, group=DEFAULT_GROUP, tenant=0497d207-eaa4-4aca-9a0f-daf93e795d66, config=
+2023-04-22 13:52:43.372[1682142763372] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api-test.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:52:43.373[1682142763373] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:52:43.376[1682142763376] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:52:43.811[1682142763811] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:52:43.812[1682142763812] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:52:43.853[1682142763853] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:52:43.856[1682142763856] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:52:43.856[1682142763856] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:52:43.879[1682142763879] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:52:43.887[1682142763887] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:52:43.888[1682142763888] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:52:43.919[1682142763919] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:52:44.066[1682142764066] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ca0b8ee3-98cd-3aee-a8bf-8290cc716b02
+2023-04-22 13:52:44.353[1682142764353] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 13:52:44.360[1682142764360] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-22 13:52:44.361[1682142764361] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:52:44.361[1682142764361] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:52:44.449[1682142764449] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:52:44.449[1682142764449] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1063 ms
+2023-04-22 13:52:44.658[1682142764658] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+2023-04-22 13:52:44.673[1682142764673] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:52:44.684[1682142764684] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:52:44.699[1682142764699] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'xxlJobConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'xxl.job.admin.addresses' in value "${xxl.job.admin.addresses}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 18 common frames omitted
+2023-04-22 13:52:45.528[1682142765528] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:52:45.528[1682142765528] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end
+2023-04-22 13:53:59.606[1682142839606] | INFO  | background-preinit | o.h.validator.internal.util.Version  - HV000001: Hibernate Validator 6.1.7.Final
+2023-04-22 13:53:59.854[1682142839854] | WARN  | background-preinit | o.s.h.c.j.Jackson2ObjectMapperBuilder - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2023-04-22 13:54:00.227[1682142840227] | INFO  | main       | c.a.n.c.c.i.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\pag\nacos\config
+2023-04-22 13:54:00.256[1682142840256] | INFO  | main       | c.a.nacos.client.config.impl.Limiter - limitTime:5.0
+2023-04-22 13:54:00.356[1682142840356] | INFO  | main       | c.a.n.client.config.utils.JvmUtil    - isMultiInstance:false
+2023-04-22 13:54:00.404[1682142840404] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api] & group[DEFAULT_GROUP]
+2023-04-22 13:54:00.442[1682142840442] | WARN  | main       | c.a.c.n.c.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[binance-api.yml] & group[DEFAULT_GROUP]
+2023-04-22 13:54:00.505[1682142840505] | INFO  | main       | o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-binance-api-test.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api.yml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-binance-api,DEFAULT_GROUP'}]
+2023-04-22 13:54:00.510[1682142840510] | INFO  | main       | c.ulla.binance.BinanceApiApplication - The following profiles are active: test
+2023-04-22 13:54:01.010[1682142841010] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:54:01.013[1682142841013] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:54:01.075[1682142841075] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 0 Elasticsearch repository interfaces.
+2023-04-22 13:54:01.079[1682142841079] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:54:01.079[1682142841079] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2023-04-22 13:54:01.106[1682142841106] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2023-04-22 13:54:01.115[1682142841115] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-04-22 13:54:01.116[1682142841116] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-04-22 13:54:01.151[1682142841151] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2023-04-22 13:54:01.388[1682142841388] | INFO  | main       | o.s.cloud.context.scope.GenericScope - BeanFactory id=ca0b8ee3-98cd-3aee-a8bf-8290cc716b02
+2023-04-22 13:54:01.713[1682142841713] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 5006 (http)
+2023-04-22 13:54:01.721[1682142841721] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-5006"]
+2023-04-22 13:54:01.721[1682142841721] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2023-04-22 13:54:01.721[1682142841721] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2023-04-22 13:54:01.814[1682142841814] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2023-04-22 13:54:01.814[1682142841814] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1292 ms
+2023-04-22 13:54:02.920[1682142842920] | INFO  | main       | org.redisson.Version                 - Redisson 3.15.6
+2023-04-22 13:54:13.534[1682142853534] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisson' defined in class path resource [com/ulla/binance/cache/config/redis/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 172.29.53.140/172.29.53.140:6379
+2023-04-22 13:54:13.545[1682142853545] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2023-04-22 13:54:13.553[1682142853553] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-22 13:54:13.570[1682142853570] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisson' defined in class path resource [com/ulla/binance/cache/config/redis/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 172.29.53.140/172.29.53.140:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1179)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at com.ulla.binance.BinanceApiApplication.main(BinanceApiApplication.java:12)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 172.29.53.140/172.29.53.140:6379
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 20 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 172.29.53.140/172.29.53.140:6379
+	at org.redisson.connection.pool.ConnectionPool$1.lambda$run$0(ConnectionPool.java:158)
+	at org.redisson.misc.RedissonPromise.lambda$onComplete$0(RedissonPromise.java:183)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117)
+	at org.redisson.misc.RedissonPromise.tryFailure(RedissonPromise.java:96)
+	at org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:328)
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$1(ConnectionPool.java:294)
+	at org.redisson.misc.RedissonPromise.lambda$onComplete$0(RedissonPromise.java:183)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:571)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:550)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117)
+	at org.redisson.misc.RedissonPromise.tryFailure(RedissonPromise.java:96)
+	at org.redisson.client.RedisClient$2$2.run(RedisClient.java:251)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:164)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: 172.29.53.140/172.29.53.140:6379
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170)
+	... 8 common frames omitted
+2023-04-22 13:54:14.548[1682142854548] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-04-22 13:54:14.550[1682142854550] | WARN  | Thread-3   | c.a.n.c.http.HttpClientBeanHolder    - [HttpClientBeanHolder] Destruction of the end

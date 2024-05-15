@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.assets.mapper.DepositConfigMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.assets.mo.DepositConfigMo" id="sysDepositConfigMap">
+        <result property="id" column="id"/>
+        <result property="configAmount" column="config_amount"/>
+        <result property="rangeBegin" column="range_begin"/>
+        <result property="rangeEnd" column="range_end"/>
+        <result property="rewardModel" column="reward_model"/>
+        <result property="rewardAmount" column="reward_amount"/>
+        <result property="buttonBackgroundColor" column="button_background_color"/>
+        <result property="buttonBorderColor" column="button_border_color"/>
+        <result property="newcomerActiveFlag" column="newcomer_active_flag"/>
+        <result property="activeTime" column="active_time"/>
+        <result property="activeRewardModel" column="active_reward_model"/>
+        <result property="activeRewardAmount" column="active_reward_amount"/>
+        <result property="state" column="state"/>
+        <result property="remark" column="remark"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteFlag" column="delete_flag"/>
+    </resultMap>
+
+
+    <!-- 按入金金额筛选入金配置-->
+    <select id="getDepositConfig" resultMap="sysDepositConfigMap">
+        SELECT
+          *
+        FROM
+          sys_deposit_config
+        WHERE
+          delete_flag = 0
+        <if test="configAmount != null and configAmount != ''">
+            AND range_end <![CDATA[ > ]]> #{configAmount}
+            AND range_begin <![CDATA[ <= ]]> #{configAmount}
+        </if>
+    </select>
+
+    <!-- 按入金金额筛选入金配置-->
+    <select id="getDepositConfigByAmount" resultMap="sysDepositConfigMap">
+        SELECT
+        *
+        FROM
+        sys_deposit_config
+        WHERE
+        delete_flag = 0
+        AND id NOT IN ( #{id} )
+        <if test="configAmount != null and configAmount != ''">
+            AND range_end <![CDATA[ > ]]> #{configAmount}
+            AND range_begin <![CDATA[ <= ]]> #{configAmount}
+        </if>
+    </select>
+
+
+    <!--入金配置列表查询 -->
+    <select id="getDepositConfigList"   resultMap="sysDepositConfigMap">
+        SELECT
+            *
+        FROM
+            sys_deposit_config
+        WHERE
+           1=1
+        AND delete_flag = 0
+        AND state = 0
+        ORDER BY id DESC
+            LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 促销活动列表查询-->
+    <select id="getDepositConfigListCount"   resultType="java.lang.Integer" >
+        SELECT
+            COUNT(*)
+        FROM
+            sys_deposit_config
+        WHERE
+            1=1
+        AND delete_flag = 0
+        AND state = 0
+        ORDER BY id DESC
+    </select>
+
+    <!--入金配置 - 获取所有正常状态的入金配置-->
+    <select id="getALLDepositConfigList"   resultMap="sysDepositConfigMap">
+        SELECT
+            *
+        FROM
+            sys_deposit_config
+        WHERE
+            1=1
+        AND delete_flag = 0
+        AND state = 0
+        ORDER BY config_amount DESC
+
+    </select>
+
+</mapper>

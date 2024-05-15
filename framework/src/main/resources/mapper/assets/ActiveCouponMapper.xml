@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.assets.mapper.ActiveCouponMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.assets.mo.ActiveCouponMo" id="bizActiveCouponMap">
+        <result property="id" column="id"/>
+        <result property="couponCode" column="coupon_code"/>
+        <result property="activeId" column="active_id"/>
+        <result property="useFlag" column="use_flag"/>
+        <result property="userId" column="user_id"/>
+        <result property="depositOrderNo" column="deposit_order_no"/>
+        <result property="useTime" column="use_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteFlag" column="delete_flag"/>
+    </resultMap>
+
+    <select id="getByCodeAndAmount" resultType="com.ulla.modules.assets.vo.CouponVo">
+        SELECT a.*,
+               b.begin_time,
+               b.end_time,
+               b.use_num,
+               b.day_use_num,
+               b.reward_model,
+               b.reward_amount,
+               b.state,
+               b.execute_model
+        FROM biz_active_coupon a
+                 LEFT JOIN biz_active b
+                           ON a.active_id = b.id
+        WHERE a.coupon_code = #{code}
+          and a.delete_flag = 0
+          and b.delete_flag = 0
+          AND #{amount} >= b.amount_range_begin
+          AND b.amount_range_end
+            > #{amount}
+        ORDER BY a.create_time LIMIT 1
+    </select>
+
+    <update id="couponUnbindOrder">
+        UPDATE `biz_active_coupon`
+        SET `use_flag`         = 0,
+            `user_id`          = NULL,
+            `deposit_order_no` = '',
+            `use_time`         = NULL,
+            `update_time`      = NULL
+        WHERE `id` = #{id};
+    </update>
+
+
+    <!--促销码列表查询 -->
+    <select id="getActiveCouponList" parameterType="com.ulla.modules.assets.vo.ActiveParameterVO"
+            resultType="com.ulla.modules.assets.vo.ActiveCouponVO">
+        SELECT
+        cou.*,
+        act.`name`,
+        act.num,
+        act.reward_model,
+        act.reward_amount,
+        act.amount_range_begin,
+        act.amount_range_end,
+        act.use_num,
+        act.day_use_num,
+        act.begin_time,
+        act.end_time,
+        act.state
+        FROM
+        biz_active_coupon cou
+        LEFT JOIN biz_active act ON cou.active_id = act.id
+        WHERE
+        1 = 1
+        <if test="activeId != null and activeId != ''">
+            AND cou.active_id like concat(concat('%', #{activeId}), '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            AND cou.user_id like concat(concat('%', #{userId}), '%')
+        </if>
+        <if test="rewardModel != null">
+            AND act.reward_model = #{rewardModel}
+        </if>
+        <if test="name != null and name != ''">
+            AND act.`name` like concat(concat('%', #{name}), '%')
+        </if>
+        <if test="useFlag != null and useFlag != ''">
+            AND cou.use_flag = #{useFlag}
+        </if>
+        <if test="state != null">
+            AND act.state = #{state}
+        </if>
+        <if test="depositOrderNo != null and depositOrderNo != ''">
+            AND cou.deposit_order_no like concat(concat('%', #{depositOrderNo}), '%')
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND cou.create_time <![CDATA[ >= ]]> #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND cou.create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            AND act.begin_time <![CDATA[ >= ]]> #{beginTime}
+        </if>
+        <if test="overTime != null and overTime != ''">
+            AND act.end_time <![CDATA[ <= ]]> #{overTime}
+        </if>
+        ORDER BY cou.create_time DESC
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 促销码列表查询列表查询-->
+    <select id="getActiveCouponListCount" parameterType="com.ulla.modules.assets.vo.ActiveParameterVO"
+            resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM
+        biz_active_coupon cou
+        LEFT JOIN biz_active act ON cou.active_id = act.id
+        WHERE
+        1 = 1
+        <if test="activeId != null and activeId != ''">
+            AND cou.active_id like concat(concat('%', #{activeId}), '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            AND cou.user_id like concat(concat('%', #{userId}), '%')
+        </if>
+        <if test="rewardModel != null">
+            AND act.reward_model = #{rewardModel}
+        </if>
+        <if test="name != null and name != ''">
+            AND act.`name` like concat(concat('%', #{name}), '%')
+        </if>
+        <if test="useFlag != null and useFlag != ''">
+            AND cou.use_flag = #{useFlag}
+        </if>
+        <if test="state != null">
+            AND act.state = #{state}
+        </if>
+        <if test="depositOrderNo != null and depositOrderNo != ''">
+            AND cou.deposit_order_no like concat(concat('%', #{depositOrderNo}), '%')
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND cou.create_time <![CDATA[ >= ]]> #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND cou.create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            AND act.begin_time <![CDATA[ >= ]]> #{beginTime}
+        </if>
+        <if test="overTime != null and overTime != ''">
+            AND act.end_time <![CDATA[ <= ]]> #{overTime}
+        </if>
+        ORDER BY cou.create_time DESC
+    </select>
+
+    <!-- 根据促销活动ID删除对应活动关联的促销码 -->
+    <delete id="deleteBatch">
+        DELETE
+        FROM biz_active_coupon
+        WHERE active_id = #{activeId}
+    </delete>
+</mapper>

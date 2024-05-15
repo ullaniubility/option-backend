@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.assets.mapper.BalanceMapper">
+
+    <select id="getDepositAmount" resultType="com.ulla.modules.assets.vo.DepositOrderVo">
+        SELECT
+            m.order_id orderNo,
+            m.create_time,
+            sum( b.amount ) amount
+        FROM
+            money_payment_transaction m
+                JOIN biz_balance_log b ON m.order_id = b.business_no
+        WHERE
+            m.user_id = #{userId}
+        GROUP BY
+            m.id
+        ORDER BY
+            m.create_time
+    </select>
+</mapper>

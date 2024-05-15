@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.assets.mapper.BalanceLogMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.assets.mo.BalanceLogMo" id="bizBalanceLogMap">
+        <result property="id" column="id"/>
+        <result property="fromUserId" column="from_user_id"/>
+        <result property="balance" column="balance"/>
+        <result property="remark" column="remark"/>
+        <result property="logNo" column="log_no"/>
+        <result property="businessNo" column="business_no"/>
+        <result property="toUserId" column="to_user_id"/>
+        <result property="businessType" column="business_type"/>
+        <result property="type" column="type"/>
+        <result property="amount" column="amount"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteFlag" column="delete_flag"/>
+    </resultMap>
+
+
+    <!--资金流水表列表查询 -->
+    <select id="getBalanceLogList" parameterType="com.ulla.modules.assets.vo.BalanceLogParameterVO"
+            resultMap="bizBalanceLogMap">
+        SELECT
+        *
+        FROM
+        biz_balance_log
+        WHERE
+        1=1
+        <if test="type ==1">
+            AND (type = 1 or type=0)
+        </if>
+        <if test="type ==3">
+            AND type = 3
+        </if>
+        <if test="fromUserId != null">
+            AND from_user_id like concat(concat('%', #{fromUserId}), '%')
+        </if>
+        <if test="toUserId != null">
+            AND to_user_id like concat(concat('%', #{toUserId}), '%')
+        </if>
+        <if test="otherUserId != null">
+            AND (from_user_id like concat(concat('%', #{otherUserId}), '%') or to_user_id like concat(concat('%',
+            #{otherUserId}), '%'))
+        </if>
+        <if test="minAmount != null and minAmount != ''">
+            AND amount <![CDATA[ >= ]]> #{minAmount}
+        </if>
+        <if test="maxAmount != null and maxAmount != ''">
+            AND amount <![CDATA[ <= ]]> #{maxAmount}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND create_time <![CDATA[ >= ]]> #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        ORDER BY create_time DESC
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 资金流水表列表查询-->
+    <select id="getBalanceLogListCount" parameterType="com.ulla.modules.assets.vo.BalanceLogParameterVO"
+            resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM
+        biz_balance_log
+        WHERE
+        1=1
+        <if test="type ==1">
+            AND (type = 1 or type=0)
+        </if>
+        <if test="type ==3">
+            AND type = 3
+        </if>
+        <if test="fromUserId != null">
+            AND from_user_id like concat(concat('%', #{fromUserId}), '%')
+        </if>
+        <if test="toUserId != null">
+            AND to_user_id like concat(concat('%', #{toUserId}), '%')
+        </if>
+        <if test="otherUserId != null">
+            AND (from_user_id like concat(concat('%', #{otherUserId}), '%') or to_user_id like concat(concat('%',
+            #{otherUserId}), '%'))
+        </if>
+        <if test="minAmount != null and minAmount != ''">
+            AND amount <![CDATA[ >= ]]> #{minAmount}
+        </if>
+        <if test="maxAmount != null and maxAmount != ''">
+            AND amount <![CDATA[ <= ]]> #{maxAmount}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND create_time <![CDATA[ >= ]]> #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+
+</mapper>

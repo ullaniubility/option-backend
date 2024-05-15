@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.business.mapper.OrderMapper">
+
+
+    <select id="selectMonth" resultType="com.ulla.modules.business.vo.MarketAnalysisVo">
+        select sum(o.if_profit = 1) / count(*) as winPercent,
+               count(*)                        as monthTotal,
+               sum(o.order_amount)             as transactionTotal
+        FROM biz_order o
+        WHERE o.status = 2
+          AND o.uid = #{query.uid}
+          and o.order_time between #{query.beginTime} and #{query.endTime}
+    </select>
+
+    <select id="selectTransaction" resultType="com.ulla.modules.business.vo.MarketAnalysisVo$Transaction">
+        SELECT a.dateFlag as priceTime, IFNULL(b.priceTotal, 0) AS priceTotal
+        FROM (select date_add(curdate(),
+                              interval(cast(id as signed integer) - 30) day) dateFlag
+              from sys_assist
+              where id<![CDATA[ <= ]]> day (last_day(curdate()))
+        order by id) AS a LEFT JOIN (SELECT FROM_UNIXTIME(create_time / 1000, '%Y-%m-%d') AS groupDate,
+        sum(order_amount) AS priceTotal FROM biz_order o WHERE o.STATUS = 2 AND o.uid = #{query.uid}
+            AND o.order_time BETWEEN #{query.beginTime}
+            AND #{query.endTime}
+            GROUP BY groupDate) AS b
+        ON a.dateFlag = b.groupDate
+    </select>
+
+    <select id="selectPercentage" resultType="com.ulla.modules.business.vo.MarketAnalysisVo$MarketAnalysis">
+        SELECT id, o.pairs as name
+        FROM biz_order o
+        WHERE o.status = 2
+          AND o.uid = #{query.uid}
+          and o.order_time between #{query.beginTime} and #{query.endTime}
+    </select>
+
+    <select id="selectCountPairs" resultType="com.ulla.modules.business.vo.MarketAnalysisVo$MarketAnalysis">
+        SELECT o.pairs as name, count(o.pairs) as pairCount
+        FROM biz_order o
+        WHERE o.status = 2
+          AND o.uid = #{query.uid}
+          and o.order_time between #{query.beginTime} and #{query.endTime}
+        group by o.pairs
+        ORDER BY count(o.pairs) DESC
+    </select>
+
+    <select id="selectAllCount" resultType="integer">
+        SELECT count(o.pairs)
+        FROM biz_order o
+        WHERE o.status = 2
+          AND o.uid = #{query.uid}
+          and o.order_time between #{query.beginTime} and #{query.endTime}
+    </select>
+
+
+    <select id="simulationOrder" resultType="com.ulla.modules.business.vo.OrderSearchVo">
+        SELECT
+        o.pairs,o.order_code,o.open_close,o.end_price,o.price,o.end_time,o.order_time,o.order_amount,o.benefit,o.trading_range,o.order_range_id
+        from
+        biz_order o
+        <where>
+            o.status=2 and o.type=0 GROUP BY o.trading_range
+            <if test="query.uid!= null and query.uid != ''">
+                and o.uid=#{query.uid}
+            </if>
+            <if test="query.pairs!= null and query.pairs != ''">
+                and o.pairs=#{query.pairs}
+            </if>
+            <if test="query.openClose != null and query.openClose != ''">
+                and o.openClose=#{query.openClose}
+            </if>
+            <if test="query.ProfitLoss==2">
+                and o.benefit&gt;0
+            </if>
+            <if test="query.ProfitLoss==1">
+                and o.benefit&lt;0
+            </if>
+            <if test="query.ProfitLoss==0">
+                and o.orderAmount=o.endPrice
+            </if>
+            <if test="query.beginTime!=null and query.beginTime != '' and query.endTime!=null and query.endTime != ''">
+                and o.order_time between #{query.beginTime} and #{query.endTime}
+            </if>
+        </where>
+        order by o.update_time desc
+    </select>
+
+    <select id="orderCalculationListByUid" resultType="com.ulla.modules.business.vo.OrderCalculationVo">
+        SELECT id,
+               order_code     AS orderCode,
+               open_close     as openClose,
+               pairs,
+               order_time     As orderTime,
+               order_amount   AS orderAmount,
+               price,
+               type,
+               order_range_id AS orderRangeId,
+               trading_range  AS tradingRange,
+               profit_percent AS profitPercent,
+               uid,
+               `status`,
+               end_time       AS endTime
+        FROM biz_order
+        WHERE (`status` = 0 OR `status` = 1 OR `status` = 4)
+          AND end_time > replace(unix_timestamp(current_timestamp(3)), '.', '')
+          AND type != 2 AND uid = #{uid}
+        ORDER BY pairs,
+            order_time DESC
+    </select>
+
+    <select id="recentTransactions" resultType="com.ulla.modules.business.vo.OrderHistoryVo">
+        SELECT a.id,
+               a.endDate,
+               c.orderCountByDate,
+               c.totalByDate,
+               a.pairs,
+               a.endPrice,
+               a.endTime,
+               b.endTimeStamp,
+               b.orderCountByTime,
+               b.totalByTime,
+               a.orderCode,
+               a.openClose,
+               a.price,
+               a.orderTime,
+               a.orderTimeStamp,
+               a.orderAmount,
+               a.benefit
+        FROM (SELECT id,
+                     FROM_UNIXTIME(substr(end_time, 1, 10), '%Y-%m-%d')       AS endDate,
+                     FROM_UNIXTIME(substr(end_time + 1, 1, 10), '%H:%i:%s')   AS endTime,
+                     substr(end_time + 1, 1, 10)                              AS endDateStamp,
+                     pairs,
+                     order_code                                               AS orderCode,
+                     open_close                                               AS openClose,
+                     price,
+                     end_price                                                AS endPrice,
+                     FROM_UNIXTIME(substr(order_time + 1, 1, 10), '%H:%i:%s') AS orderTime,
+                     order_time                                               AS orderTimeStamp,
+                     order_amount                                             AS orderAmount,
+                     benefit
+              FROM biz_order ${ew.customSqlSegment}
+              GROUP BY id) AS a
+                 LEFT JOIN (SELECT COALESCE
+                                       (sum(benefit), 0)       AS totalByTime,
+                                   COUNT(order_code)           AS orderCountByTime,
+                                   substr(end_time + 1, 1, 10) AS endTimeStamp
+                            FROM biz_order ${ew.customSqlSegment}
+                            GROUP BY endTimeStamp) AS b ON a.endDateStamp = b.endTimeStamp
+                 LEFT JOIN (SELECT COALESCE
+                                       (SUM(benefit), 0)                                  AS totalByDate,
+                                   COUNT(order_code)                                      AS orderCountByDate,
+                                   FROM_UNIXTIME(substr(end_time + 1, 1, 10), '%Y-%m-%d') AS groupDate
+                            FROM biz_order ${ew.customSqlSegment}
+                            GROUP BY groupDate) AS c ON a.endDate = c.groupDate
+        GROUP BY a.orderCode
+        ORDER BY a.endDate DESC,
+                 a.endTime DESC,
+                 a.pairs
+    </select>
+    <select id="barOrder" resultType="com.ulla.modules.business.vo.YearChartVo">
+        SELECT FROM_UNIXTIME(o.order_time/1000,'%Y%m') months,COUNT(o.id) count,SUM(o.order_amount)
+        orderAmount,o.pairs_id,o.pairs,SUM(o.benefit) benefit FROM biz_order o LEFT JOIN qa_transaction_category_child c
+        ON
+        o.pairs_id=c.id
+        <where>
+            <if test="pairsId!= null and pairsId!=''">
+                o.pairs_id=#{pairsId}
+            </if>
+            <if test="symbolNames!= null and symbolNames!=''">
+                and o.pairs=#{symbolNames}
+            </if>
+        </where>
+        GROUP BY months
+    </select>
+
+    <select id="barMonth" resultType="com.ulla.modules.business.vo.YearChartVo">
+        select FROM_UNIXTIME(o.order_time/1000,'%Y%m%d') days,COUNT(o.id) count,SUM(o.order_amount)
+        orderAmount,SUM(o.benefit) benefit FROM biz_order o LEFT JOIN qa_transaction_category_child c ON o.pairs_id=c.id
+        <where>
+            o.type =1
+            <if test="query.pairsId!= null and query.pairsId!=''">
+                and o.pairs_id=#{query.pairsId}
+            </if>
+            <if test="query.symbolNames!= null and query.symbolNames!=''">
+                and o.pairs=#{query.symbolNames}
+            </if>
+            <if test="query.startTime!=null and query.startTime != '' and query.endTime!=null and query.endTime != ''">
+                and o.order_time between #{query.startTime} and #{query.endTime}
+            </if>
+        </where>
+        ORDER BY days
+    </select>
+</mapper>

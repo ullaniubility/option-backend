@@ -1,0 +1,15 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.242.240.167:8848
+        namespace: e6933704-6332-436f-aaa3-060ac5f3e6c3
+  redis:
+    port: 6379
+    host: 47.242.240.167
+    password: 123456

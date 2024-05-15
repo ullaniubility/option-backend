@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.business.mapper.QuestionMapper">
+    <select id="pageList" resultType="com.ulla.modules.business.qo.QuestionQo">
+        SELECT id,
+               question,
+               answer,
+               create_time,
+               update_time,
+               operator_uid,
+               status_type,
+               sort
+        from sys_question ${ew.customSqlSegment}
+    </select>
+</mapper>

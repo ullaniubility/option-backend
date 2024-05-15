@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ulla.modules.payment.mapper.ReasonReissueInfoMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.payment.entity.ReasonReissueInfoEntity" id="reasonReissueInfoMap">
+        <result property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="reasonInfo" column="reason_info"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+
+
+    <!--根据订单Id获取订单详情 -->
+    <select id="getReasonReissueList"   resultMap="reasonReissueInfoMap">
+        SELECT
+           *
+        FROM
+           reason_reissue_info
+        WHERE
+        1=1
+        <if test="orderId != null and orderId != ''">
+            AND order_id = #{orderId}
+        </if>
+    </select>
+</mapper>

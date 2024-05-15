@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.business.mapper.MoneyHistoryMapper">
+
+    <select id="financeHistory" resultType="com.ulla.modules.business.vo.FinanceVo">
+        SELECT l.log_no,
+               l.amount,
+               l.create_time,
+               t.mail,
+               t.uid,
+               t.channel_name,
+               t.order_status,
+               (SELECT sum(l.amount)
+                FROM `biz_balance_log` l
+                         LEFT JOIN money_payment_transaction t ON l.log_no = t.order_id
+                WHERE t.order_status = 0) as waitTotal,
+               (SELECT sum(l.amount)
+                FROM `biz_balance_log` l
+                         LEFT JOIN money_payment_transaction t ON l.log_no = t.order_id
+                WHERE t.order_status = 1) as alreadyTotal
+        FROM `biz_balance_log` l
+                 LEFT JOIN money_payment_transaction t ON l.log_no = t.order_id
+            ${ew.customSqlSegment}
+    </select>
+
+    <select id="balanceHistory" resultType="com.ulla.modules.business.vo.BalanceVo">
+        SELECT l.log_no,
+               l.amount,
+               l.create_time,
+               l.business_type,
+               l.balance,
+               t.mail,
+               t.uid,
+               t.channel_name,
+               t.order_status
+        FROM `biz_balance_log` l
+                 LEFT JOIN money_payment_transaction t ON l.log_no = t.order_id
+            ${ew.customSqlSegment}
+
+    </select>
+
+    <select id="bar" resultType="com.ulla.modules.business.vo.YearChartVo">
+        SELECT FROM_UNIXTIME(create_time/1000,'%Y%m') months,COUNT(id) count,SUM(currency_amount)
+        currencyAmount,symbol,net FROM `money_payment_transaction`
+        <where>
+            <if test="sy!= null and sy!=''">
+                symbol=#{sy}
+            </if>
+            <if test="sq!= null and sq!=''">
+                and net=#{sq}
+            </if>
+        </where>
+        GROUP BY months
+
+    </select>
+</mapper>

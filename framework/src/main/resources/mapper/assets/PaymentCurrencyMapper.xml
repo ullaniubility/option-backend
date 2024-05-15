@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ulla.modules.payment.mapper.PaymentCurrencyMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.payment.entity.PaymentCurrencyEntity" id="paymentCurrencyMap">
+        <result property="id" column="id"/>
+        <result property="symbol" column="symbol"/>
+        <result property="fullName" column="full_name"/>
+        <result property="logoUrl" column="logo_url"/>
+        <result property="volumeUsd" column="volume_usd"/>
+        <result property="currencyStatus" column="currency_status"/>
+        <result property="marketCapusd" column="market_capUsd"/>
+        <result property="availableSupply" column="available_supply"/>
+        <result property="totalSupply" column="total_supply"/>
+        <result property="maxSupply" column="max_supply"/>
+        <result property="websiteUrl" column="website_url"/>
+        <result property="explorerUrls" column="explorer_urls"/>
+        <result property="whitePaperUrls" column="white_paper_urls"/>
+        <result property="githubId" column="github_id"/>
+        <result property="twitterId" column="twitter_id"/>
+        <result property="facebookId" column="facebook_id"/>
+        <result property="telegramId" column="telegram_id"/>
+        <result property="algoritHm" column="algorit_hm"/>
+        <result property="proof" column="proof"/>
+        <result property="platforms" column="platforms"/>
+        <result property="issueDate" column="issue_date"/>
+        <result property="contractAddress" column="contract_address"/>
+        <result property="ignores" column="ignores"/>
+        <result property="fiat" column="fiat"/>
+        <result property="details" column="details"/>
+        <result property="coinType" column="coin_type"/>
+        <result property="abi" column="abi"/>
+        <result property="isDelete" column="is_delete"/>
+        <result property="net" column="net"/>
+        <result property="netName" column="net_name"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="decimalNumber" column="decimal_number"/>
+        <result property="isExchange" column="is_exchange"/>
+        <result property="isBuy" column="is_buy"/>
+    </resultMap>
+
+    <!--获取可支付币种列表 -->
+    <select id="getPaymentCurrency"   resultMap="paymentCurrencyMap">
+        SELECT
+          *
+        FROM
+          payment_currency
+    </select>
+
+
+</mapper>

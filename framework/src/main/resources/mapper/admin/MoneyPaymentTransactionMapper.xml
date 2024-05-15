@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ulla.modules.payment.mapper.MoneyPaymentTransactionMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.payment.entity.MoneyPaymentTransactionEntity" id="moneyPaymentTransactionMap">
+        <result property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="mail" column="mail"/>
+        <result property="userId" column="user_id"/>
+        <result property="uid" column="uid"/>
+        <result property="inviteId" column="invite_id"/>
+        <result property="buttonCode" column="button_code"/>
+        <result property="estimatedDepositAmount" column="estimated_deposit_amount"/>
+        <result property="depositMonetaryUnit" column="deposit_monetary_unit"/>
+        <result property="rewardCode" column="reward_code"/>
+        <result property="rewardAmount" column="reward_amount"/>
+        <result property="preferentialAmount" column="preferential_amount"/>
+        <result property="actualPaymentAmount" column="actual_payment_amount"/>
+        <result property="actualReceivedAmount" column="actual_received_amount"/>
+        <result property="channelPaymentAmount" column="channel_payment_amount"/>
+        <result property="channelMonetaryUnit" column="channel_monetary_unit"/>
+        <result property="channelName" column="channel_name"/>
+        <result property="channelType" column="channel_type"/>
+        <result property="net" column="net"/>
+        <result property="symbol" column="symbol"/>
+        <result property="currencyAmount" column="currency_amount"/>
+        <result property="currencyPrice" column="currency_price"/>
+        <result property="isFirstOrder" column="is_first_order"/>
+        <result property="isUsePreferential" column="is_use_preferential"/>
+        <result property="preferentialCode" column="preferential_code"/>
+        <result property="address" column="address"/>
+        <result property="contractAddress" column="contract_address"/>
+        <result property="transactionHash" column="transaction_hash"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+
+    <!--根据订单Id获取订单详情 -->
+    <select id="getTransactionByOrderId" resultMap="moneyPaymentTransactionMap">
+        SELECT
+        *
+        FROM
+        money_payment_transaction
+        WHERE
+        1=1
+        <if test="orderId != null and orderId != ''">
+            AND order_id = #{orderId}
+        </if>
+    </select>
+
+    <select id="getWallectByOrderId" resultType="com.ulla.modules.payment.vo.MoneyPaymentTransactionVO">
+        SELECT p.*,c.address AS wallectAddress FROM money_payment_transaction p LEFT JOIN biz_user_wallet_connect c ON
+        p.uid=c.uid
+        WHERE
+        1=1
+        <if test="orderId != null and orderId != ''">
+            AND p.order_id = #{orderId}
+        </if>
+    </select>
+
+
+    <!-- 按条件筛选币种信息-->
+    <select id="getTransactionListByParamer" parameterType="com.ulla.modules.payment.vo.TransactionParamerVO"
+            resultType="com.ulla.modules.payment.vo.TransactionParamerVO">
+        SELECT
+        t.*,w.address AS wallectAddress
+        FROM
+        money_payment_transaction t LEFT JOIN biz_user_wallet_connect w ON t.uid=w.uid
+        WHERE
+        1=1
+        <if test="mail != null and mail != ''">
+            AND t.mail like concat(concat('%', #{mail}), '%')
+        </if>
+        <if test="uid != null and uid != ''">
+            AND t.uid like concat(concat('%', #{uid}), '%')
+        </if>
+        <if test="openId != null and openId != ''">
+            AND t.open_id like concat(concat('%', #{openId}), '%')
+        </if>
+        <if test="orderId != null and orderId != ''">
+            AND t.order_id like concat(concat('%', #{orderId}), '%')
+        </if>
+        <if test="isFirstOrder != null">
+            AND t.is_first_order = #{isFirstOrder}
+        </if>
+        <if test="isUsePreferential != null">
+            AND t.is_use_preferential = #{isUsePreferential}
+        </if>
+        <if test="channelType != null">
+            <if test="channelType == 0">
+                AND t.channel_type in (0,1)
+            </if>
+            <if test="channelType == 1">
+                AND t.channel_type in (2)
+            </if>
+        </if>
+        <if test="orderStatus != null">
+            AND t.order_status = #{orderStatus}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND t.create_time <![CDATA[ >= ]]> #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND t.create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        ORDER BY t.create_time DESC
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 按条件筛选币种信息对应数量-->
+    <select id="getTransactionListByParamerCount" parameterType="com.ulla.modules.payment.vo.TransactionParamerVO"
+            resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM
+        money_payment_transaction t LEFT JOIN biz_user_wallet_connect w ON t.uid=w.uid
+        WHERE
+        1=1
+        <if test="mail != null and mail != ''">
+            AND t.mail like concat(concat('%', #{mail}), '%')
+        </if>
+        <if test="uid != null and uid != ''">
+            AND t.uid like concat(concat('%', #{uid}), '%')
+        </if>
+        <if test="openId != null and openId != ''">
+            AND t.open_id like concat(concat('%', #{openId}), '%')
+        </if>
+        <if test="orderId != null and orderId != ''">
+            AND t.order_id like concat(concat('%', #{orderId}), '%')
+        </if>
+        <if test="isFirstOrder != null">
+            AND t.is_first_order = #{isFirstOrder}
+        </if>
+        <if test="isUsePreferential != null">
+            AND t.is_use_preferential = #{isUsePreferential}
+        </if>
+        <if test="channelType != null">
+            <if test="channelType == 0">
+                AND t.channel_type in (0,1)
+            </if>
+            <if test="channelType == 1">
+                AND t.channel_type in (2)
+            </if>
+        </if>
+        <if test="orderStatus != null">
+            AND t.order_status = #{orderStatus}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND t.create_time <![CDATA[ >= ]]> #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND t.create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        ORDER BY t.create_time DESC
+    </select>
+
+
+    <!-- 处理失效订单 - 订单时长超过30分钟切状态仍在待付款状态订单处理为失效订单-->
+    <select id="getProcessInvalidOrders" resultMap="moneyPaymentTransactionMap">
+        SELECT
+        *
+        FROM
+        money_payment_transaction
+        WHERE
+        order_status = 0
+        <if test="endTime != null and endTime != ''">
+            AND create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+    </select>
+
+
+</mapper>

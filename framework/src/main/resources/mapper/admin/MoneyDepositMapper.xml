@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ulla.modules.business.mapper.MoneyDepositMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ulla.modules.business.mo.MoneyDepositMo" id="moneyPaymentTransactionMap">
+        <result property="id" column="id"/>
+        <result property="logoUrl" column="logo_url"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="uid" column="uid"/>
+        <result property="depositMonetaryUnit" column="deposit_monetary_unit"/>
+        <result property="depositMonetaryAmount" column="deposit_monetary_amount"/>
+        <result property="address" column="address"/>
+        <result property="addressLower" column="address_lower"/>
+        <result property="transactionHash" column="transaction_hash"/>
+        <result property="net" column="net"/>
+        <result property="symbol" column="symbol"/>
+        <result property="currencyAmount" column="currency_amount"/>
+        <result property="currencyPrice" column="currency_price"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleteFlag" column="delete_flag"/>
+        <result property="mail" column="mail"/>
+        <result property="channelName" column="channel_name"/>
+    </resultMap>
+
+    <!-- 按条件筛选币种信息-->
+    <select id="getExpenditureList" parameterType="com.ulla.modules.business.qo.MoneyDepositQo"
+            resultType="com.ulla.modules.business.qo.MoneyDepositQo">
+        SELECT m.*,w.address as wallectAddress FROM money_deposit m LEFT JOIN biz_user_wallet_connect w ON m.uid=w.uid
+        WHERE
+        1=1
+        <if test="mail != null and mail != ''">
+            AND m.mail like concat(concat('%', #{mail}), '%')
+        </if>
+        <if test="uid != null and uid != ''">
+            AND m.uid like concat(concat('%', #{uid}), '%')
+        </if>
+        <if test="openId != null and openId != ''">
+            AND m.open_id like concat(concat('%', #{openId}), '%')
+        </if>
+        <if test="wallectAddress != null and wallectAddress != ''">
+            AND w.address like concat(concat('%', #{wallectAddress}), '%')
+        </if>
+        <if test="orderStatus != null">
+            AND m.order_status = #{orderStatus}
+        </if>
+        <if test="depositMonetaryUnit != null and depositMonetaryUnit != ''">
+            AND m.deposit_monetary_unit = #{depositMonetaryUnit}
+        </if>
+        <if test="depositMonetaryAmount != null and depositMonetaryAmount != ''">
+            AND m.deposit_monetary_amount = #{depositMonetaryAmount}
+        </if>
+        <if test="channelName != null and channelName != ''">
+            AND m.channel_name = #{channelName}
+        </if>
+        <if test="address != null and address != ''">
+            AND m.address like concat(concat('%', #{address}), '%')
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            AND m.create_time <![CDATA[ >= ]]> #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND m.create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        ORDER BY m.create_time DESC
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+
+    <!-- 按条件筛选币种信息对应数量-->
+    <select id="getExpenditureListCount" parameterType="com.ulla.modules.business.qo.MoneyDepositQo"
+            resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM
+        money_deposit
+        WHERE
+        1=1
+        <if test="mail != null and mail != ''">
+            AND mail like concat(concat('%', #{mail}), '%')
+        </if>
+        <if test="uid != null and uid != ''">
+            AND uid like concat(concat('%', #{uid}), '%')
+        </if>
+        <if test="orderStatus != null">
+            AND order_status = #{orderStatus}
+        </if>
+        <if test="depositMonetaryUnit != null and depositMonetaryUnit != ''">
+            AND deposit_monetary_unit = #{depositMonetaryUnit}
+        </if>
+        <if test="depositMonetaryAmount != null and depositMonetaryAmount != ''">
+            AND deposit_monetary_amount = #{depositMonetaryAmount}
+        </if>
+        <if test="channelName != null and channelName != ''">
+            AND channel_name = #{channelName}
+        </if>
+        <if test="address != null and address != ''">
+            AND address like concat(concat('%', #{address}), '%')
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            AND create_time <![CDATA[ >= ]]> #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND create_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

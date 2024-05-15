@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.ulla</groupId>
+    <artifactId>ulla-option-parent</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <spring.cloud.version>2020.0.1</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
+        <spring-boot.version>2.4.2</spring-boot.version>
+        <java.version>1.8</java.version>
+        <revision>1.0.0</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <skipTests>true</skipTests>
+        <spotify>1.2.2</spotify>
+        <mybatis-plus-version>3.5.1</mybatis-plus-version>
+        <lombok-version>1.18.24</lombok-version>
+        <sharding-jdbc-version>4.0.0</sharding-jdbc-version>
+        <Hutool-version>5.8.0</Hutool-version>
+        <swageer-version>1.6.8</swageer-version>
+        <jackson-version>2.14.0</jackson-version>
+        <google-version>1.0</google-version>
+        <fastjson-version>1.2.83</fastjson-version>
+        <redisson>3.15.6</redisson>
+        <commons-version>3.2.2</commons-version>
+        <commons-codec-version>1.15</commons-codec-version>
+        <commons-io-version>2.11.0</commons-io-version>
+        <httpclient-version>4.5.13</httpclient-version>
+        <jwt-version>0.9.1</jwt-version>
+        <auth0-jwt.version>3.8.3</auth0-jwt.version>
+        <auth0-rsa.version>0.12.0</auth0-rsa.version>
+        <rocketmq-spring-boot-starter-version>2.2.2</rocketmq-spring-boot-starter-version>
+        <simple-http.version>1.0.5</simple-http.version>
+    </properties>
+
+    <modules>
+        <module>auth-api</module>
+        <module>admin-api</module>
+        <module>framework</module>
+        <module>ulla-api</module>
+        <module>gateway</module>
+        <module>android-api</module>
+        <module>ios-api</module>
+        <module>pc-api</module>
+        <module>binance-api</module>
+        <module>websocket-server</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
